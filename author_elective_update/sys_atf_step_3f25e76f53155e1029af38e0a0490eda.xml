@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="DELETE">
+        <active>true</active>
+        <copied_from/>
+        <description>Assert a JSON response payload is valid</description>
+        <display_name>Assert Response JSON Payload Is Valid</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>3</order>
+        <step_config display_value="Assert Response JSON Payload Is Valid">f100f7079f132200ef4afa7dc67fcf42</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-23 17:37:30</sys_created_on>
+        <sys_id>3f25e76f53155e1029af38e0a0490eda</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Assert Response JSON Payload Is Valid</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_atf_step_3f25e76f53155e1029af38e0a0490eda</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-23 17:37:30</sys_updated_on>
+        <table/>
+        <test display_value="Get NeedIT  rec">5ff2e7eb53155e1029af38e0a0490e8a</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="DELETE" query="document_key=3f25e76f53155e1029af38e0a0490eda"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</application>
+        <file_path/>
+        <instance_id>9d657c3d1b3df5d0fe1b43f4bd4bcbb1</instance_id>
+        <instance_name>dev182470</instance_name>
+        <name>sys_atf_step_3f25e76f53155e1029af38e0a0490eda</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step"><sys_atf_step action="INSERT_OR_UPDATE"><active>true</active><copied_from/><description>Assert a JSON response payload is valid</description><display_name>Assert Response JSON Payload Is Valid</display_name><inputs/><mugshots_cache_json/><notes/><order>3</order><step_config display_value="Assert Response JSON Payload Is Valid">f100f7079f132200ef4afa7dc67fcf42</step_config><sys_class_name>sys_atf_step</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2024-10-23 17:37:30</sys_created_on><sys_id>3f25e76f53155e1029af38e0a0490eda</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Assert Response JSON Payload Is Valid</sys_name><sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package><sys_policy/><sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope><sys_update_name>sys_atf_step_3f25e76f53155e1029af38e0a0490eda</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2024-10-23 17:37:30</sys_updated_on><table/><test display_value="Get NeedIT  rec">5ff2e7eb53155e1029af38e0a0490e8a</test><timeout/><warning_message/></sys_atf_step><sys_variable_value action="delete_multiple" query="document_key=3f25e76f53155e1029af38e0a0490eda"/></record_update>]]></payload>
+        <payload_hash>1065391079</payload_hash>
+        <record_name>Assert Response JSON Payload Is Valid</record_name>
+        <reverted_from/>
+        <source>a28ef3be53995a1029af38e0a0490e05</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-23 17:37:30</sys_created_on>
+        <sys_id>b135e32f53155e1029af38e0a0490e02</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>192ba7483560000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-23 17:37:30</sys_updated_on>
+        <type>Test Step</type>
+        <update_guid>b535e32f82155e10df99d721016b3901</update_guid>
+        <update_guid_history>b535e32f82155e10df99d721016b3901:1065391079</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-23 17:43:13</sys_created_on>
+        <sys_db_object display_value="" name="sys_atf_step">sys_atf_step</sys_db_object>
+        <sys_id>53186f68f0c741cdaa13a348db04c861</sys_id>
+        <sys_metadata>3f25e76f53155e1029af38e0a0490eda</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Assert Response JSON Payload Is Valid</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_scope_delete display_value="">94872a8897db403e8ee69a431de2fca4</sys_scope_delete>
+        <sys_update_name>sys_atf_step_3f25e76f53155e1029af38e0a0490eda</sys_update_name>
+        <sys_update_version display_value="sys_atf_step_3f25e76f53155e1029af38e0a0490eda">b135e32f53155e1029af38e0a0490e02</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-23 17:43:13</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

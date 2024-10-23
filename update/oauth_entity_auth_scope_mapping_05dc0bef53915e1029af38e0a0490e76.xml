@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity_auth_scope_mapping">
+    <oauth_entity_auth_scope_mapping action="INSERT_OR_UPDATE">
+        <auth_scope display_value="needit_read">620c4baf53915e1029af38e0a0490e66</auth_scope>
+        <oauth_entity display_value="fake  external application(cllient) for the NeedIT scripted  Rest API">97700baf53515e1029af38e0a0490e1c</oauth_entity>
+        <sys_class_name>oauth_entity_auth_scope_mapping</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-23 15:52:04</sys_created_on>
+        <sys_id>05dc0bef53915e1029af38e0a0490e76</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>oauth_entity_auth_scope_mapping_05dc0bef53915e1029af38e0a0490e76</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-23 15:52:04</sys_updated_on>
+    </oauth_entity_auth_scope_mapping>
+</record_update>

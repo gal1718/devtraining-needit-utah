@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>GET</http_method>
+        <name>Get User NI recs (v2)</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+	var userNiRecs = [];
+
+	var user_name = request.pathParams.user_name;
+	if(!user_name){
+		response.setError(sn_ws_err.NotFoundError('User name not provided'));
+		response.setStatus(404);
+		return;
+	}
+
+	var requestedUserGr = new GlideRecord('sys_user');
+	var userExist = requestedUserGr.get('user_name', user_name);
+	
+	if(!userExist){
+		response.setError(new sn_ws_err.NotFoundError('Provided user does not exist'));
+		response.setStatus(404);
+		return;
+	}
+
+	var niGr = new GlideRecord("x_58872_needit_needit");
+	niGr.addEncodedQuery('u_requested_for=' + requestedUserGr.sys_id);
+	niGr.query();
+
+	while(niGr.next()){
+		gs.info("GALIS2222");
+		var niObj = {
+			"Number": niGr.number,
+			"Requested for": niGr.u_requested_for,
+			"Short description:": niGr.short_description,
+			"Assign to": niGr.assigned_to,
+			"Status": niGr.state,
+			"Priority": niGr.priority
+		};
+
+		userNiRecs.push(niObj);
+	}
+
+	gs.info("result is: " + userNiRecs);
+
+	response.setBody(userNiRecs);
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_58872_needit/v2/needit_api/user_ni_recs/{user_name}</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/user_ni_recs/{user_name}</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-22 20:10:19</sys_created_on>
+        <sys_id>da9e7e1f535dda1029af38e0a0490e5a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Get User NI recs (v2)</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_ws_operation_da9e7e1f535dda1029af38e0a0490e5a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-22 20:10:19</sys_updated_on>
+        <web_service_definition display_value="NeedIt API">da7208c353d95a1029af38e0a0490e0e</web_service_definition>
+        <web_service_version display_value="v2">9e9e7e57535dda1029af38e0a0490e4f</web_service_version>
+    </sys_ws_operation>
+</record_update>

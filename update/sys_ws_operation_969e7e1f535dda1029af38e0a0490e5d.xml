@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>PATCH</http_method>
+        <name>Update NeedIT rec (v2)</name>
+        <operation_script><![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    // implement resource here
+    var answer = [];
+
+    var number = request.pathParams.number.toString();
+
+    //Declare variables for the possible names in the requested body
+    var requestBody = request.body.data;
+    var short_description = requestBody.short_description;
+    var state = requestBody.state;
+    var priority = requestBody.priority;
+    var requested_for = requestBody.requested_for;
+    var request_type = requestBody.request_type;
+    var when_needed = requestBody.when_needed;
+    var requested_for_email = requestBody.requested_for_email;
+
+    //Generate 404 if number not provided
+    if (!number) {
+        response.setError(new sn_ws_err.NotFoundError("No Number defined"));
+        response.setStatus(404);
+        return;
+    }
+
+    //Generate 404 if request body contains no or invalid data
+    if (!short_description && !state && !priority && !requested_for && request_type && !when_needed && !requested_for_email) {
+        response.setError(new sn_ws_err.NotFoundError("Object contains no or invalid properties"));
+        response.setStatus(404);
+        return;
+    }
+
+    var needItGr = new GlideRecord("x_58872_needit_needit");
+    needItGr.addQuery('number', number);
+    needItGr.query();
+
+    if (!needItGr.hasNext()) {
+        response.setError(new sn_ws_err.NotFoundError("No NeedIt record founded"));
+        response.setStatus(404);
+        return;
+    }
+
+    if (needItGr.next()) {
+        if (short_description) {
+            needItGr.short_description = short_description;
+        }
+        if (priority) {
+            needItGr.priority = priority;
+        }
+        if (requested_for) {
+            needItGr.u_requested_for = requested_for;
+        }
+        if (request_type) {
+            needItGr.u_request_type = request_type;
+        }
+        if (when_needed) {
+            needItGr.u_when_needed = when_needed;
+        }
+        if (requested_for_email) {
+            needItGr.u_requested_for_email = requested_for_email;
+        }
+        if (state) {
+            needItGr.state = state;
+        }
+
+        needItGr.update();
+
+    }
+
+    //Set a 200 status for success
+    response.setStatus(200);
+    //Create a json obj with details of the updated record
+    var updatedNeedItObj = {
+		"short_description": needItGr.short_description,
+        "sys_id": needItGr.sys_id,
+		"requested_for": needItGr.u_requested_for.getDisplayValue(),
+		"when_needed": needItGr.u_when_needed,
+		"requested_type": needItGr.u_request_type,
+		"state": needItGr.state,
+		"requested_for_email": needItGr.u_requested_for_email
+    };
+
+	response.setBody(updatedNeedItObj);
+
+
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_58872_needit/v2/needit_api/needit/{number}</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/needit/{number}</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-22 20:10:19</sys_created_on>
+        <sys_id>969e7e1f535dda1029af38e0a0490e5d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Update NeedIT rec (v2)</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_ws_operation_969e7e1f535dda1029af38e0a0490e5d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-22 20:10:19</sys_updated_on>
+        <web_service_definition display_value="NeedIt API">da7208c353d95a1029af38e0a0490e0e</web_service_definition>
+        <web_service_version display_value="v2">9e9e7e57535dda1029af38e0a0490e4f</web_service_version>
+    </sys_ws_operation>
+</record_update>

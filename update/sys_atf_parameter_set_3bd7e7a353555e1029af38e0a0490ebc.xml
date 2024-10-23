@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_parameter_set">
+    <sys_atf_parameter_set action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description>Number = NI002049
+Version = v2
+Response Code = 200</description>
+        <order>2</order>
+        <parameters/>
+        <sys_class_name>sys_atf_parameter_set</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-23 17:49:29</sys_created_on>
+        <sys_id>3bd7e7a353555e1029af38e0a0490ebc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>2</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_atf_parameter_set_3bd7e7a353555e1029af38e0a0490ebc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-23 17:49:29</sys_updated_on>
+        <test display_value="Get NeedIT  rec">5ff2e7eb53155e1029af38e0a0490e8a</test>
+    </sys_atf_parameter_set>
+    <sys_variable_value action="delete_multiple" query="document_key=3bd7e7a353555e1029af38e0a0490ebc"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_parameter_set</document>
+        <document_key>3bd7e7a353555e1029af38e0a0490ebc</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-23 17:49:29</sys_created_on>
+        <sys_id>01f76f6353555e1029af38e0a0490e2d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-23 17:49:29</sys_updated_on>
+        <value>v2</value>
+        <variable display_value="Version">fdc3ab2f53155e1029af38e0a0490e3f</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_parameter_set</document>
+        <document_key>3bd7e7a353555e1029af38e0a0490ebc</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-23 17:49:29</sys_created_on>
+        <sys_id>4df76f6353555e1029af38e0a0490e2c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-23 17:49:29</sys_updated_on>
+        <value>NI002049</value>
+        <variable display_value="Number">92a3a72f53155e1029af38e0a0490e62</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_parameter_set</document>
+        <document_key>3bd7e7a353555e1029af38e0a0490ebc</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-23 17:49:29</sys_created_on>
+        <sys_id>c1f76f6353555e1029af38e0a0490e2d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-23 17:49:29</sys_updated_on>
+        <value>200</value>
+        <variable display_value="Response Code">7257eb6353555e1029af38e0a0490e1e</variable>
+    </sys_variable_value>
+</record_update>

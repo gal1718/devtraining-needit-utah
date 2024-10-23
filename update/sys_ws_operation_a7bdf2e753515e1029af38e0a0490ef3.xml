@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>POST</http_method>
+        <name>Create Ni rec (v3)</name>
+        <operation_script><![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    //Declare empty array for answer
+    var answer = [];
+
+    //Declare variable for the possible names in the request body
+    var short_description;
+    var state;
+    var priority;
+    var requested_for;
+    var request_type;
+	var when_needed;
+
+    // get the request body
+    var requestBody = request.body;
+	
+
+    //convert JSON obj to a javasxcrupt string
+//    var requestString = requestBody.dataString;
+	var result = requestBody.data;
+
+    // Log the request string
+    gs.info('requestString vdgvdvgd: ' + JSON.stringify(result));
+
+    //convert javascript string to a js obj
+    //var result = JSON.parse(requestString);
+	gs.info("iffffffffff" + JSON.stringify(requestBody.needits));
+    //for every needIt in the array , create a records and pusd the rec details to an obj
+    try {
+
+        for (i in result.needits) {
+            short_description = result.needits[i].short_description;
+            state = result.needits[i].state;
+            priority = result.needits[i].priority;
+            request_type = result.needits[i].request_type;
+			when_needed = result.needits[i].when_needed;
+
+			gs.info("iteration " + i + "the fields: short_description: " + short_description, + " request_type: " + request_type);
+            //find user
+            var requestedUserGr = new GlideRecord('sys_user');
+            var userExist = requestedUserGr.get('user_name', result.needits[i].requested_for);
+
+            if (userExist) {
+                requested_for = requestedUserGr.sys_id;
+            }
+
+            var needItGr = new GlideRecord("x_58872_needit_needit");
+            needItGr.initialize();
+            needItGr.short_description = short_description;
+            needItGr.state = state;
+            needItGr.priority = priority;
+            needItGr.u_request_type = request_type;
+            needItGr.u_requested_for = requestedUserGr.sys_id;
+			//gs.log("lama ze lo oved: " + requestedUserGr.sys_id);
+			needItGr.u_requested_for_email = requestedUserGr.email;
+			needItGr.u_when_needed = new GlideDateTime(when_needed);
+
+            needItGr.insert();
+
+            var needItObj = {
+                "short_description": needItGr.short_description,
+                "sys_id": needItGr.sys_id
+            };
+
+            answer.push(needItObj);
+
+        }
+    } catch (err) {
+        var serviceError = new sn_ws_err.ServiceError();
+        serviceError.setStatus(500);
+        serviceError.setMessage('Service error');
+        serviceError.setDetail('The server could not process the request.');
+        response.setError(serviceError);
+		
+    }
+
+    response.setBody(answer);
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_58872_needit/v3/needit_api/need_its</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/need_its</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-23 14:45:03</sys_created_on>
+        <sys_id>a7bdf2e753515e1029af38e0a0490ef3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Create Ni rec (v3)</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_ws_operation_a7bdf2e753515e1029af38e0a0490ef3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-23 14:45:03</sys_updated_on>
+        <web_service_definition display_value="NeedIt API">da7208c353d95a1029af38e0a0490e0e</web_service_definition>
+        <web_service_version display_value="v3">2bbdf2e753515e1029af38e0a0490eef</web_service_version>
+    </sys_ws_operation>
+</record_update>
